@@ -77,9 +77,9 @@ WSGI_APPLICATION = 'mountain_decode.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mountain_decode_db',
-        'USER': 'w-ikeda',
-        'PASSWORD': 'P(cxkkMpjrTdy8gmBvS4/h.HeT$SU4',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
     }
 }
 
@@ -120,68 +120,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'media_root')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'static_root')
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+STATICFILE_DIRS = [
+    os.path.join(BASE_DIR, 'asset')
 ]
-
-
-
-
-# Default logging for Django. This sends an email to the site admins on every
-# HTTP 500 error. Depending on DEBUG, all other log records are either sent to
-# the console (DEBUG=True) or discarded (DEBUG=False) by means of the
-# require_debug_true filter.
-
-
-DEFAULT_LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse',
-        },
-        'require_debug_true': {
-            '()': 'django.utils.log.RequireDebugTrue',
-        },
-    },
-    'formatters': {
-        'django.server': {
-            '()': 'django.utils.log.ServerFormatter',
-            'format': '[%(server_time)s] %(message)s a',
-        }
-    },
-    'handlers': {
-        'console': {
-            'level': 'INFO',
-            'filters': ['require_debug_true'],
-            'class': 'logging.StreamHandler',
-        },
-        'django.server': {
-            'level': 'INFO',
-            'class': 'logging.StreamHandler',
-            'formatter': 'django.server',
-        },
-        'mail_admins': {
-            'level': 'ERROR',
-            'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler'
-        }
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['console', 'mail_admins'],
-            'level': 'INFO',
-        },
-        'django.server': {
-            'handlers': ['django.server'],
-            'level': 'INFO',
-            'propagate': False,
-        },
-    }
-}
