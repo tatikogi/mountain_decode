@@ -1,0 +1,18 @@
+
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+{% endblock %}
+
+{% block content %}
+    <article class="detail_article">
+        <h2>{{post.title}}</h2>
+        <p class="time"><time>{{post.create_at|date:"Y.n.j H:i"}}</time></p>
+
+        {% if post.photo %}<figure><img src="{{ post.photo.url }}"/></figure>{% endif %}
+        {% if post.text %}<p>{{post.text | safe}}</p>{% endif %}
+    </article>
+    <a href="{% url 'blog:index' %}">home</a>
+{% endblock %}

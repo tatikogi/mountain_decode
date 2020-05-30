@@ -1,0 +1,17 @@
+
+@charset "utf-8";
+
+/* grid */
+
+body > * {
+    display: grid;
+}
+
+section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+article {
+    margin: 30px;
+}

@@ -1,0 +1,26 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>MOUNTAIN DECODE</title>
+    <meta name="viewport" content="width=1024">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
+    {% block css %}{% endblock %}
+</head>
+
+<body>
+    <header>
+        <a href="{% url 'blog:index' %}">
+            <p>MOUNTAIN DECODE</p>
+            <p>UL.Hike & Climb</p>
+        </a>
+    </header>
+    <section>
+        {% block content %}{% endblock %}
+    </section>
+    <footer>© MONTAIN DECODE 2020</footer>
+</body>
+</html>
