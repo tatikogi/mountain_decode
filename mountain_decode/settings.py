@@ -120,11 +120,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+#開発環境
+
+"""
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = 'static/'
+"""
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "assets")
+]
 
 #S3
 
@@ -138,3 +146,4 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # collectstatic を実行すると静的ファイルをS3に保存
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
