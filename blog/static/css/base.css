@@ -3,9 +3,18 @@
 
 /* 基本設定 */
 
+
 * {
     margin: 0;
 }
+
+header {
+    margin: auto;
+    text-align: center;
+    font-family: 'Bad Script', cursive;
+    font-size: 50px;
+}
+
 
 img {
     width: 100%;
@@ -25,19 +34,15 @@ body {
     display: grid;
     grid-template-columns: 20px 1fr 20px;
     grid-template-rows: 300px auto 300px;
+    font-family: 'Noto Serif JP', serif;
 }
 
 body > * {
     grid-column: 2/3;
 }
 
-/* header, footer */
-
-header {
-    margin: auto;
-    text-align: center;
-    font-family: 'Bad Script', cursive;
-    font-size: 50px;
+.sub_title {
+    font-size: 30px;
 }
 
 footer {

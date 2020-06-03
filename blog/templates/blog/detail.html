@@ -8,11 +8,10 @@
 
 {% block content %}
     <article class="detail_article">
+        {% if post.photo %}<figure><img src="{{ post.photo.url }}" id="detail_pic" /></figure>{% endif %}
         <h2>{{post.title}}</h2>
         <p class="time"><time>{{post.create_at|date:"Y.n.j H:i"}}</time></p>
-
-        {% if post.photo %}<figure><img src="{{ post.photo.url }}"/></figure>{% endif %}
-        {% if post.text %}<p>{{post.text | safe}}</p>{% endif %}
+        {% if post.text %}<p class="text">{{post.text | safe}}</p>{% endif %}
     </article>
-    <a href="{% url 'blog:index' %}">home</a>
+    <a href="{% url 'blog:index' %}" class="back"> << Back To TOP </a>
 {% endblock %}

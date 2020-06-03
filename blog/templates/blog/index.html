@@ -11,9 +11,9 @@
         <article>
             <a href="{% url 'blog:detail' post.pk %}">
                 {% if post.photo %}<figure><img src="{{ post.photo.url }}"></figure>{% endif %}
-                <h3>{{ post.title }}</h3>
             </a>
-            <p><time>{{ post.create_at|date:"Y.n.j H:i"}}</time></p>
+            <h3 id="top_title">{{ post.title }}</h3>
+            <p><time>{{ post.create_at|date:"Y.n.j"}}</time></p>
         </article>
     {% endfor %}
 {% endblock %}
