@@ -26,7 +26,7 @@ SECRET_KEY = '*8r@oetvd9z*iqv*4sppf8wxw8hr-*i7_spr3_mpr)vtjubrzs'
 DEBUG = True
 # DEBUG = False
 
-ALLOWED_HOSTS = [os.environ.get('ALLOW_HOSTS')]
+ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS')]
 
 
 # Application definition
@@ -125,8 +125,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 #開発環境
-
-
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'

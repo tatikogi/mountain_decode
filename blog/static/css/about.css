@@ -1,0 +1,19 @@
+
+@charset "utf-8";
+
+h1 {
+    font-size: 20px;
+    margin: 30px 0;
+}
+
+.about_text {
+    font-size: 16px;
+    line-height: 40px;
+}
+
+.back {
+    display: block;
+    font-size: 30px;
+    margin-top: 100px;
+    font-family: 'Bad Script', cursive;
+}

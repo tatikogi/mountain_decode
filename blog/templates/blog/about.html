@@ -1,0 +1,18 @@
+
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+<H1>免責事項</H1>
+<p class="about_text">
+当サイトのコンテンツ・情報につきまして、必ずしもそれらの正確性や安全性等を保証するものではありません。<br>
+当サイトをご利用することで発生した事故・トラブル等に関して、当方は一切の責任を負いません。<br>
+リンク先サイトの正確性や合法性、その内容について一切保証するものではありません。<br>
+本免責事項、および当サイトに掲載しているすべての記事は、予告なしに変更・削除されることがあります。</p>
+
+<a href="{% url 'blog:index' %}" class="back"> << Back To TOP </a>
+{% endblock %}

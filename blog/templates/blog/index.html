@@ -10,14 +10,14 @@
     {% for post in object_list %}
         <article>
             <a href="{% url 'blog:detail' post.pk %}">
-                {% if post.photo %}<figure><img src="{{ post.photo.url }}"></figure>{% endif %}
+                {% if post.photo %}<img src="{{ post.photo.url }}">{% endif %}
             </a>
-            <h3 id="top_title">{{ post.title }}</h3>
-            <p><time>{{ post.create_at|date:"Y.n.j"}}</time></p>
+            <h2 id="contents_title">{{ post.title }}</h2>
+            <time>{{ post.create_at|date:"Y.n.j"}}</time>
         </article>
     {% endfor %}
 {% endblock %}
 
 {% block pagination %}
-{% include "blog/pagination.html" %}
+    {% include "blog/pagination.html" %}
 {% endblock %}
