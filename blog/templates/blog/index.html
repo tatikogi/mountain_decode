@@ -16,6 +16,10 @@
             <time>{{ post.create_at|date:"Y.n.j"}}</time>
         </article>
     {% endfor %}
+
+    <section>
+    {% include "blog/sidebar.html" %}
+    </section>
 {% endblock %}
 
 {% block pagination %}

@@ -1,0 +1,8 @@
+
+<div>
+    <ul>
+        {% for category in categories|dictsort:"id" %}
+        <li><a href="{% url 'blog:category_post' category.slug %}">{{ category.name }} ({{ category.num_posts }})</a></li>
+        {% endfor %}
+    </ul>
+</div>

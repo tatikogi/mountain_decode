@@ -1,13 +1,22 @@
 
 from django.db import models
 
+class Category(models.Model):
+    name = models.CharField(max_length=255)
+    slug = models.SlugField(unique=True)
+
+    def __str__(self):
+        return self.name
+
+
 class Post(models.Model):
 
-    title = models.CharField(max_length=200, null=True, blank=True)
-    create_at = models.DateTimeField(null=True, blank=True)
+    category = models.ForeignKey(Category, on_delete=models.PROTECT, null=True)
+    title = models.CharField(max_length=200, null=True)
+    create_at = models.DateTimeField(null=True)
 
-    photo = models.ImageField(upload_to='media', null=True, blank=True)
-    text = models.TextField(null=True, blank=True)
+    photo = models.ImageField(upload_to='media', null=True)
+    text = models.TextField(null=True)
 
     class Meta:
         ordering = ['create_at']
